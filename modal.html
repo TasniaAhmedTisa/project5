@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+    <style>
+        /* Basic modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+            justify-content: center; /* Center the modal */
+            align-items: center; /* Center the modal */
+        }
+        .modal-box {
+            background-color: white; /* White background */
+            padding: 20px; /* Padding */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25); /* Shadow */
+        }
+        .hidden {
+            display: none; /* Hide the modal */
+        }
+      </style>
+</head>
+<body>
+    <!-- Modal -->
+<div id="successModal" class="modal hidden">
+    <div class="modal-box">
+      <h2 class="font-bold text-lg">Donation Successful!</h2>
+      <p class="py-4">Thank you for your generous donation. Your contribution will make a significant difference.</p>
+      <div class="modal-action">
+        <button id="closeModal" class="btn">Close</button>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+</body>
+</html>
