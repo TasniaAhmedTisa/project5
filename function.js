@@ -1,83 +1,47 @@
 
+    // Success Modal Elements
+    const successModal = document.getElementById("my_modal_5");
+    const closeModalBtn = document.getElementById("closeModal");
 
-
-document.getElementById('donate-btn').addEventListener('click', function(event) {
-    event.preventDefault();
-    const donate = document.getElementById('input-donate-amount').value;
-    const donatenumber = parseFloat(donate);
-    const balance = document.getElementById('amount').innerText;
-    const balancenumber = parseFloat(balance);
-    const totalAmount = document.getElementById('balance').innerText;
-        const totalAmountNumber = parseFloat(totalAmount);
-    const message = isNaN(donatenumber) ? 'Please enter a valid number.' :
-        donatenumber <= 0 || donatenumber === "" ? 'The donation amount cannot be empty or negative' :
-        donatenumber > totalAmountNumber ? 'Donation amount exceeds your account balance.' : '';
-
-    if (message) {
-        alert(message); 
-        return;
-    } else {
-        const newamount = balancenumber + donatenumber;
-        document.getElementById('amount').innerText = newamount;
-
-        
-        const totalBalance = totalAmountNumber - donatenumber;
-        document.getElementById('balance').innerText = totalBalance;
-
-        
-        showModal();
+    // Function to show the modal
+    function showModal() {
+        successModal.showModal();
     }
-});
 
-document.getElementById('donate-btn-card2').addEventListener('click', function(event) {
-    event.preventDefault();
-    const donate = document.getElementById('input-donate-amount2').value;
-    const donatenumber = parseFloat(donate);
-    const balance = document.getElementById('amount2').innerText;
-    const balancenumber = parseFloat(balance);
-    const totalAmount = document.getElementById('balance').innerText;
-        const totalAmountNumber = parseFloat(totalAmount);
-    const message = isNaN(donatenumber) ? 'Please enter a valid number.' :
-        donatenumber <= 0 || donatenumber === "" ? 'The donation amount cannot be empty or negative' :
-        donatenumber > totalAmountNumber ? 'Donation amount exceeds your account balance.' : '';
+    // Close modal
+    closeModalBtn.addEventListener('click', function() {
+        successModal.close();
+    });
 
-    if (message) {
-        alert(message);
-        return;
-    } else {
-        const newamount = balancenumber + donatenumber;
-        document.getElementById('amount2').innerText = newamount;
+    // Common donation function
+    function handleDonation(buttonId, inputId, amountId) {
+        document.getElementById(buttonId).addEventListener('click', function(event) {
+            event.preventDefault();
+            const donateAmount = parseFloat(document.getElementById(inputId).value);
+            const availableAmount = parseFloat(document.getElementById(amountId).innerText);
+            const totalBalance = parseFloat(document.getElementById('balance').innerText);
 
-    
-        const totalBalance = totalAmountNumber - donatenumber;
-        document.getElementById('balance').innerText = totalBalance;
-        showModal();
-        
+            if (isNaN(donateAmount) || donateAmount <= 0) {
+                alert("Please enter a valid donation amount.");
+                return;
+            }
+
+            if (donateAmount > totalBalance) {
+                alert("Donation amount exceeds available balance.");
+                return;
+            }
+
+            // Update donation and total balance
+            document.getElementById(amountId).innerText = (availableAmount + donateAmount).toFixed(2);
+            document.getElementById('balance').innerText = (totalBalance - donateAmount).toFixed(2);
+
+            // Show success modal
+            showModal();
+        });
     }
-});
 
-document.getElementById('donate-btn-card3').addEventListener('click', function(event) {
-    event.preventDefault();
-    const donate = document.getElementById('input-donate-amount3').value;
-    const donatenumber = parseFloat(donate);
-    const balance = document.getElementById('amount3').innerText;
-    const balancenumber = parseFloat(balance);
-    const totalAmount = document.getElementById('balance').innerText;
-        const totalAmountNumber = parseFloat(totalAmount);
-    const message = isNaN(donatenumber) ? 'Please enter a valid number.' :
-        donatenumber <= 0 || donatenumber === "" ? 'The donation amount cannot be empty or negative' :
-        donatenumber > totalAmountNumber ? 'Donation amount exceeds your account balance.' : '';
+    // Bind event listeners for each donation button
+    handleDonation('donate-btn', 'input-donate-amount', 'amount');
+    handleDonation('donate-btn-card2', 'input-donate-amount2', 'amount2');
+    handleDonation('donate-btn-card3', 'input-donate-amount3', 'amount3');
 
-    if (message) {
-        alert(message);
-        return;
-    } else {
-        const newamount = balancenumber + donatenumber;
-        document.getElementById('amount3').innerText = newamount;
-
-        const totalBalance = totalAmountNumber - donatenumber;
-        document.getElementById('balance').innerText = totalBalance;
-        showModal();
-
-    }
-});
