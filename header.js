@@ -23,3 +23,10 @@ const headerHTML = `<header class="sticky top-0 z-50 bg-[rgb(249, 247, 243)] bac
 </header>`;
 
 document.getElementById('header-container').innerHTML = headerHTML;
+
+document.getElementById("myButton").addEventListener("click", function() {
+    window.location.href = "http://127.0.0.1:5500/donation.html"; 
+});
+document.getElementById("myButton2").addEventListener("click", function() {
+    window.location.href = "http://127.0.0.1:5500/history.html"; 
+});
