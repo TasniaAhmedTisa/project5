@@ -3,7 +3,7 @@ const headerHTML = `<header class="sticky top-0 z-50 bg-[rgb(249, 247, 243)] bac
     <div class="navbar px-20 py-5">
         <div class="navbar-start">
             <div class="btn bg-lime-400">
-                <button class="font-extrabold">Blog</button>
+                <button id="blogButton" class="font-extrabold">Blog</button>
             </div>
         </div>
         <div class="navbar-center">
@@ -17,16 +17,11 @@ const headerHTML = `<header class="sticky top-0 z-50 bg-[rgb(249, 247, 243)] bac
         </div>
     </div>
     <div class="flex justify-center p-20 space-x-4">
-        <button class="btn text-xl">Donation</button>
-        <button class="btn text-xl">History</button>
+        <button id="donationBtn" class="btn text-xl">Donation</button>
+        <button id="historyBtn" class="btn text-xl">History</button>
     </div>
 </header>`;
 
 document.getElementById('header-container').innerHTML = headerHTML;
 
-//document.getElementById("myButton").addEventListener("click", function() {
-    //window.location.href = "http://127.0.0.1:5500/donation.html"; 
-//});
-//document.getElementById("myButton2").addEventListener("click", function() {
-    window.location.href = "http://127.0.0.1:5500/history.html"; 
-//});
+

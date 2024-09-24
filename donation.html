@@ -13,7 +13,7 @@
     <div class="navbar bg-gray-50 px-20 py-5">
         <div class="navbar-start">
             <div class="btn bg-lime-400">
-                <a href="./blog.html"><button class="font-extrabold">Blog</button></a>
+                <button id="blogButton" class="font-extrabold">Blog</button>
             </div>
         </div>
         <div class="navbar-center">
@@ -80,10 +80,11 @@
     </div>
 
     <!-- Success Modal -->
-    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle text-center">
         <div class="modal-box">
+            <h1 class="font-extrabold text-xl text-red-600">Congrats!!!</h1>
             <h3 class="text-lg font-extrabold">Donation Successful!</h3>
-            <p class="py-4">Thank you for your generous donation. Your contribution will make a significant difference.</p>
+            <p class="py-4">Thank you for your generous donation.</p>
             <div class="modal-action">
                 <button id="closeModal" class="btn">Close</button>
             </div>
@@ -93,6 +94,10 @@
 </main>
 
 <script src="./function.js"></script>
+<script src="./toggolButton.js"></script>
+<script src="./header.js"></script>
+<script src="./button.js"></script>
+
 
 </body>
 </html>
