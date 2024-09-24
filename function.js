@@ -1,4 +1,15 @@
+function getCurrentDateTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-indexed
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
 
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+}
+    
     // Success Modal Elements
     const successModal = document.getElementById("my_modal_5");
     const closeModalBtn = document.getElementById("closeModal");
@@ -32,11 +43,14 @@
             }
 
             // Update donation and total balance
-            document.getElementById(amountId).innerText = (availableAmount + donateAmount).toFixed(2);
-            document.getElementById('balance').innerText = (totalBalance - donateAmount).toFixed(2);
+            document.getElementById(amountId).innerText = (availableAmount + donateAmount);
+            document.getElementById('balance').innerText = (totalBalance - donateAmount);
 
             // Show success modal
             showModal();
+
+    
+           
         });
     }
 
@@ -44,4 +58,5 @@
     handleDonation('donate-btn', 'input-donate-amount', 'amount');
     handleDonation('donate-btn-card2', 'input-donate-amount2', 'amount2');
     handleDonation('donate-btn-card3', 'input-donate-amount3', 'amount3');
+
 
